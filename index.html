@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaitanya (Deemed to be University)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #b8d6e8;
+        }
+        .header {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .container {
+            width: 95%;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+        }
+        .left-panel {
+            width: 20%;
+            padding-right: 15px;
+        }
+        .main-content {
+            width: 60%;
+            padding: 0 15px;
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+        .right-panel {
+            width: 20%;
+            padding-left: 15px;
+        }
+        .nav-heading {
+            background-color: #ff9933;
+            color: white;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        .nav-item {
+            background-color: #e0e0c7;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-item:hover {
+            background-color: #d0d0b7;
+        }
+        .nav-item-icon {
+            color: #ff9933;
+            font-weight: bold;
+        }
+        .info-box {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: #00f;
+            text-align: justify;
+        }
+        .content-heading {
+            border-bottom: 1px solid #ff9933;
+            padding-bottom: 5px;
+            margin-top: 0;
+            color: #666;
+        }
+        .content-subheading {
+            background-color: #a0aec4;
+            color: white;
+            padding: 8px;
+            margin-top: 20px;
+        }
+        .form-container {
+            width: 100%;
+            margin: 20px 0;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .form-label {
+            width: 30%;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: bold;
+        }
+        .form-input {
+            width: 70%;
+        }
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .radio-option {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 5px;
+        }
+        .button-group {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button {
+            padding: 5px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .info-text {
+            color: blue;
+            margin: 10px 0;
+        }
+        .copyright {
+            font-size: 0.8em;
+            margin-top: 20px;
+            color: #666;
+        }
+        .hidden {
+            display: none;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .results-table th {
+            background-color: #f2f2f2;
+        }
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+        .fail {
+            color: red;
+            font-weight: bold;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Chaitanya (Deemed to be University)
+    </div>
+    
+    <div class="container">
+        <div class="left-panel">
+            <div class="nav-heading">Links</div>
+            <div class="nav-item">→ Home</div>
+            
+            <div class="nav-item">
+                Time Tables
+                <span class="nav-item-icon">●</span>
+            </div>
+            <div class="nav-item">
+                Seating Arrangement
+                <span class="nav-item-icon">●</span>
+            </div>
+            <div class="nav-item">
+                Examination Results
+                <span class="nav-item-icon">●</span>
+            </div>
+            <div class="nav-item">
+                News
+                <span class="nav-item-icon">●</span>
+            </div>
+            <div class="nav-item">
+                Events
+                <span class="nav-item-icon">●</span>
+            </div>
+            <div class="nav-item">
+                Notifications
+                <span class="nav-item-icon">●</span>
+            </div>
+            <div class="nav-item">
+                All
+                <span class="nav-item-icon">●</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <h2 class="content-heading">Exam Branch</h2>
+            <div>Home</div>
+            <hr>
+            <div>Results page</div>
+            <hr>
+            
+            <div class="content-subheading">WEB RESULTS</div>
+            
+            <div class="form-container" id="resultForm">
+                <div class="form-row">
+                    <div class="form-label">Semester :</div>
+                    <div class="form-input">
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="sem1" name="semester" value="1">
+                                <label for="sem1">1</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem2" name="semester" value="2">
+                                <label for="sem2">2</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem3" name="semester" value="3">
+                                <label for="sem3">3</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem4" name="semester" value="4">
+                                <label for="sem4">4</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem5" name="semester" value="5">
+                                <label for="sem5">5</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem6" name="semester" value="6">
+                                <label for="sem6">6</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem7" name="semester" value="7">
+                                <label for="sem7">7</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem8" name="semester" value="8">
+                                <label for="sem8">8</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem9" name="semester" value="9">
+                                <label for="sem9">9</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sem10" name="semester" value="10">
+                                <label for="sem10">10</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-label">HallTicket No :</div>
+                    <div class="form-input">
+                        <input type="text" id="hallTicket" placeholder="(124105XXX)">
+                        <div id="hallTicketError" class="error-message"></div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="button" onclick="showResults()">Submit</button>
+                    <button class="button" onclick="resetForm()">Cancel</button>
+                </div>
+            </div>
+            
+            <div id="resultDisplay" class="hidden">
+                <h3>Student Results</h3>
+                <div>
+                    <strong>Hall Ticket:</strong> <span id="displayHallTicket"></span> |
+                    <strong>Semester:</strong> <span id="displaySemester"></span>
+                </div>
+                
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Marks</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Results will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <div class="button-group">
+                    <button class="button" onclick="goBack()">Back to Search</button>
+                </div>
+            </div>
+            
+            <div class="info-text">
+                <p>Note:</p>
+                <p>Revaluation fee per subject Rs 500/- .Last Date for revaluation 23/12/2022 4.00 pm For Autonomous</p>
+                <p>Off line payment at exam branch</p>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="nav-heading">INFO</div>
+            <div class="info-box">
+                We are elated to introduce ourselves as a premier group of educational institutions in the area of Higher Education and Technical Education in Southern India. We want to ensure an institution in holistic education and value which teaches students to grow, think, believe and liberate, both in the realms of theoretical knowledge and practical applications. We want to pioneer the growth of the next generation students, the movers and shakers, the innovators and dreamers to bring about an enlightening era of academic brilliance.
+            </div>
+            
+            <div class="copyright">
+                Copyright © 2022<br>
+                Chaitanya (Deemed to be University)<br>
+                All Rights Reserved<br>
+                This Website is Designed and Maintained by Web Team
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateHallTicket(hallTicket) {
+            // Check if the hall ticket starts with 124105 and has 3 additional digits
+            const pattern = /^124105\d{3}$/;
+            return pattern.test(hallTicket);
+        }
+        
+        function showResults() {
+            const hallTicket = document.getElementById('hallTicket').value;
+            const hallTicketError = document.getElementById('hallTicketError');
+            const semesterInputs = document.getElementsByName('semester');
+            let selectedSemester = "";
+            
+            for (let i = 0; i < semesterInputs.length; i++) {
+                if (semesterInputs[i].checked) {
+                    selectedSemester = semesterInputs[i].value;
+                    break;
+                }
+            }
+            
+            // Reset error message
+            hallTicketError.textContent = '';
+            
+            // Validate hall ticket format
+            if (!validateHallTicket(hallTicket)) {
+                hallTicketError.textContent = 'Hall Ticket must be in format 124105XXX where XXX are any 3 digits';
+                return;
+            }
+            
+            if (selectedSemester === "") {
+                alert('Please select a semester');
+                return;
+            }
+            
+            // Display the results
+            document.getElementById('resultForm').classList.add('hidden');
+            document.getElementById('resultDisplay').classList.remove('hidden');
+            
+            document.getElementById('displayHallTicket').textContent = hallTicket;
+            document.getElementById('displaySemester').textContent = selectedSemester;
+            
+            // Generate random results
+            const resultsBody = document.getElementById('resultsBody');
+            resultsBody.innerHTML = ''; // Clear previous results
+            
+            // Predefined subjects
+            const subjects = [
+                { code: "ENG101", name: "English" },
+                { code: "BSCS201", name: "Computer Science" },
+                { code: "CL302", name: "C Language" },
+                { code: "FIT103", name: "Foundation in IT" },
+                { code: "FOE104", name: "Fundamentals of Engineering" }
+            ];
+            
+            // Generate random results for each subject
+            subjects.forEach(subject => {
+                const row = document.createElement('tr');
+                
+                const codeCell = document.createElement('td');
+                codeCell.textContent = subject.code;
+                row.appendChild(codeCell);
+                
+                const nameCell = document.createElement('td');
+                nameCell.textContent = subject.name;
+                row.appendChild(nameCell);
+                
+                const marksCell = document.createElement('td');
+                // Random marks between 30 and 95
+                const marks = Math.floor(Math.random() * 66) + 30;
+                marksCell.textContent = marks;
+                row.appendChild(marksCell);
+                
+                const resultCell = document.createElement('td');
+                if (marks >= 40) {
+                    resultCell.textContent = "PASS";
+                    resultCell.className = "pass";
+                } else {
+                    resultCell.textContent = "FAIL";
+                    resultCell.className = "fail";
+                }
+                row.appendChild(resultCell);
+                
+                resultsBody.appendChild(row);
+            });
+        }
+        
+        function resetForm() {
+            document.getElementById('hallTicket').value = '';
+            document.getElementById('hallTicketError').textContent = '';
+            const semesterInputs = document.getElementsByName('semester');
+            for (let i = 0; i < semesterInputs.length; i++) {
+                semesterInputs[i].checked = false;
+            }
+        }
+        
+        function goBack() {
+            document.getElementById('resultDisplay').classList.add('hidden');
+            document.getElementById('resultForm').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
